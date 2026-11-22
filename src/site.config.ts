@@ -11,7 +11,7 @@ export const site = {
   email: '',
 
   address: {
-    street: 'Baciuty 85',
+    street: 'ul. Parkowa 2',
     locality: 'Baciuty',
     postalCode: '18-106',
     region: 'podlaskie',
@@ -27,10 +27,11 @@ export const site = {
   visitNote:
     'Najlepiej zadzwoń przed przyjazdem i upewnij się, że jesteśmy na miejscu.',
 
-  mapQuery: 'Baciuty 85, 18-106 Baciuty, Polska',
-
   heroImage: '/images/jodla-premium-960.webp',
 } as const;
+
+export const addressLabel = `${site.address.locality}, ${site.address.street}`;
+export const mapQuery = `${site.address.street}, ${site.address.postalCode} ${site.address.locality}, Polska`;
 
 export const phoneDigits = site.phone.replace(/\D/g, '');
 
@@ -47,7 +48,7 @@ export const phoneLabel = hasPhone
   : '';
 
 export const mapsUrl =
-  `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(site.mapQuery)}`;
+  `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(mapQuery)}`;
 
 export const mapEmbedUrl =
-  `https://www.google.com/maps?q=${encodeURIComponent(site.mapQuery)}&hl=pl&z=16&output=embed`;
+  `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&hl=pl&z=16&output=embed`;

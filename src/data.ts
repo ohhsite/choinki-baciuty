@@ -16,10 +16,10 @@ export const inspirations = [
 ] as const;
 
 export const faq = [
-  { question:'Gdzie kupić żywą choinkę w Baciutach?', answer:'Zapraszamy pod adres Baciuty 85, 18-106 Baciuty, w gminie Turośń Kościelna. Przed przyjazdem zadzwoń i potwierdź, że jesteśmy na miejscu.' },
+  { question:'Gdzie kupić żywą choinkę w Baciutach?', answer:`Zapraszamy na ${site.address.street}, ${site.address.postalCode} ${site.address.locality}, w gminie Turośń Kościelna. Przed przyjazdem zadzwoń i potwierdź, że jesteśmy na miejscu.` },
   { question:'W jakich godzinach można przyjechać po choinkę?', answer:`Po choinkę możesz przyjechać codziennie w godzinach ${site.hours.label}. Najlepiej wcześniej zadzwoń pod numer ${phoneLabel} i upewnij się, że jesteśmy na miejscu.` },
   { question:'Jakie choinki są w ofercie?', answer:'Oferujemy jodły kaukaskie Premium i Standard, jodły Frasera oraz świerki. Są choinki cięte i w donicach. Dostępność konkretnego gatunku i wysokości potwierdź przed przyjazdem.' },
-  { question:'Czy mogę wybrać konkretną choinkę na miejscu?', answer:'Tak. Po telefonicznym ustaleniu wizyty możesz przyjechać do Baciut 85, obejrzeć dostępne drzewka i wybrać konkretny egzemplarz.' },
+  { question:'Czy mogę wybrać konkretną choinkę na miejscu?', answer:'Tak. Po telefonicznym ustaleniu wizyty możesz przyjechać do naszego punktu, obejrzeć dostępne drzewka i wybrać konkretny egzemplarz.' },
   { question:'Ile kosztują choinki w sezonie 2026?', answer:'Cena zależy od gatunku, klasy i wysokości drzewka. Aktualne ceny oraz dostępne rozmiary podamy telefonicznie lub na miejscu. Skontaktuj się z nami przed wizytą.' },
   { question:'Czym różni się jodła Premium od Standard?', answer:'Premium to wybór dla osób szukających gęstszej i bardziej regularnej choinki. Standard ma bardziej naturalny pokrój — może mieć prześwity między gałęziami lub być mniej symetryczny. Najlepiej porównać konkretne drzewka na miejscu.' },
   { question:'Czy są dostępne choinki w donicach?', answer:'Tak, w ofercie są także choinki w donicach. Przed przyjazdem zapytaj o aktualnie dostępne gatunki, wysokości i konkretne drzewka.' },

@@ -32,7 +32,11 @@ test('Gotowy HTML zawiera treść, telefon i godziny 10:00–20:00', () => {
   );
 
   assert.match(html, /Choinki w Baciutach/);
-  assert.match(html, /Baciuty 85/);
+  assert.match(html, /Baciuty, ul\. Parkowa 2/);
+  assert.doesNotMatch(html, /Baciut(?:y)? 85/);
+  const mapAddress = encodeURIComponent('ul. Parkowa 2, 18-106 Baciuty, Polska');
+  assert.ok(html.includes(`destination=${mapAddress}`));
+  assert.ok(html.includes(`maps?q=${mapAddress}`));
   assert.match(html, /500 610 026/);
   assert.match(html, /href="tel:\+48500610026"/);
   assert.match(html, /10:00–20:00/);
@@ -75,7 +79,12 @@ test('Zdjęcia wskazane w HTML istnieją w dist', async () => {
   }
 });
 
-test('Pliki JavaScript i CSS wskazane w HTML istnieją w dist', async () => {
+test('Ikony, JavaScript i CSS wskazane w HTML istnieją w dist', async () => {
+  for (const icon of ['/favicon.ico', '/favicon.svg']) {
+    assert.ok(html.includes(`href="${icon}"`));
+    await fs.access(assetFile(icon));
+  }
+
   const assets = Array.from(
     html.matchAll(/(?:src|href)="(\/assets\/[^"?#]+\.(?:js|css))"/g),
     (match) => match[1]
@@ -141,7 +150,7 @@ test('JSON-LD ma właściwy adres, telefon i godziny codziennie 10:00–20:00', 
   assert.ok(store, 'Brak danych Store w JSON-LD.');
 
   assert.equal(store.url, SITE);
-  assert.equal(store.address.streetAddress, 'Baciuty 85');
+  assert.equal(store.address.streetAddress, 'ul. Parkowa 2');
   assert.equal(store.address.addressLocality, 'Baciuty');
   assert.equal(store.address.postalCode, '18-106');
   assert.equal(store.telephone, '+48500610026');
